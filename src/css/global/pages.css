@@ -1,0 +1,9 @@
+#testleftalign{
+    float: left;
+    margin-left: 2px;
+}
+
+#textrightalign{
+    float:right;
+    margin-right: 2px;
+}
