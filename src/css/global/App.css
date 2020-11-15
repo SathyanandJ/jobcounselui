@@ -118,21 +118,23 @@
 }
 
 #leftnavbuttonprop{
-    background-color:  rgba(48, 3, 22, 0.075);
     border-width: thin;
-    border-color: maroon;
+    border-color: black;
     color: black;
     margin-top: 3px;
     margin-left: 3px;
     border-radius: 6px;
     transition-duration: 0.4s;
-    background-color:  rgba(179, 143, 158, 0.075);
+    background-color:  #F4FBFE;
+    font-weight: bold;
 
 }
 #leftnavbuttonprop:hover{
     color:  maroon;
-    background-color: thistle;
+    background-color: #92DFF3;
 }
+
+
 
 #topnavbuttonprop{
     background-color:  rgba(48, 3, 22, 0.075);
@@ -145,13 +147,12 @@
 }
 
 #custom-btn {
-    background: #4285f4;
-    color: #fff;
+    background: #1E92EB;
+    color: #ffffff;
     border-radius: 3px;
     border: 2px solid black;
     padding: 15px 30px;
     font-family: arial,sans-serif;
     display: flex;
     justify-content: center;
-
   }

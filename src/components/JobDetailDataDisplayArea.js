@@ -17,6 +17,16 @@ class JobDetailDataDisplayArea extends Component {
         };
     }
 
+    renderTextAsList(textArray){
+        if(textArray){
+            return(
+                textArray.map((text,index) => (
+                  <li key={index}>{text}</li>
+                )
+            ));
+        }
+    }
+
     componentDidMount(){
         var jobidtogetdetails = this.props.jobid;
         console.log('Fetching Job Details For JobId :'+jobidtogetdetails)
@@ -32,7 +42,8 @@ class JobDetailDataDisplayArea extends Component {
     render() {
 
         return (
-            <BorderWrapper rightOffset='100px'>
+            <div id="pagedetail-pagecontent-div-wholepage">
+            <BorderWrapper rightOffset='100px' >
             <div >
                 
             <div >
@@ -49,7 +60,7 @@ class JobDetailDataDisplayArea extends Component {
                 
             <div >
                 <div id="pagedetail-pagecontent-text-header">
-                    Expected Salary (per Month):
+                    Salary (per Month):
 
                 </div>
                 <div id="pagedetail-pagecontent-text-content"> 
@@ -77,9 +88,9 @@ class JobDetailDataDisplayArea extends Component {
 
                 </div>
                 <div id="pagedetail-pagecontent-text-content"> 
-
-                    {this.props.jobsdetail.qualification}
-                
+                        
+                        {this.renderTextAsList(this.props.jobsdetail.qualification)}
+                        
                 </div>
             </div>
 
@@ -90,7 +101,7 @@ class JobDetailDataDisplayArea extends Component {
                 </div>
                 <div id="pagedetail-pagecontent-text-content"> 
 
-                    {this.props.jobsdetail.description}
+                    {this.renderTextAsList(this.props.jobsdetail.description)}
                 
                 </div>
             </div>
@@ -102,7 +113,7 @@ class JobDetailDataDisplayArea extends Component {
                 </div>
                 <div id="pagedetail-pagecontent-text-content"> 
 
-                    {this.props.jobsdetail.eligibilityCriteria}
+                    {this.renderTextAsList(this.props.jobsdetail.eligibilityCriteria)}
                 
                 </div>
             </div>
@@ -126,7 +137,7 @@ class JobDetailDataDisplayArea extends Component {
                 </div>
                 <div id="pagedetail-pagecontent-text-content"> 
 
-                    {this.props.jobsdetail.selectionProcess}
+                    {this.renderTextAsList(this.props.jobsdetail.selectionProcess)}
                 
                 </div>
             </div>
@@ -167,18 +178,27 @@ class JobDetailDataDisplayArea extends Component {
                 </div>
             </div>
 
-            <div>
+            <div id ="pagedetail-pagecontent-button-content">
 
-            <a href= "https://www.sbi.co.in/documents/77530/400725/2206201827-Advt.+SCO-2020-21-18.pdf/afb97e11-94be-df9b-659e-2a66e2e706db?t=1592830707858" target="_blank">Click Here To View The Advertisement</a>
-                                <br/><br/>
+                <div id ="pagedetail-pagecontent-button-content-left">
+                        <Button href= {this.props.jobsdetail.jobdetailslnk} id="pagedetail-pagecontent-button-custom-btn" >View Advertisement</Button>
+                               
 
-                                <a href= "https://recruitment.bank.sbi/crpd-sco-2020-21-18/apply" target="_blank">Click Here To Apply</a>
-                                <br/><br/> 
+                </div>
+                <div id ="pagedetail-pagecontent-button-content-right">
+                                <Button href= {this.props.jobsdetail.jobapplylnk} id="pagedetail-pagecontent-button-custom-btn" >Click To Apply</Button>
+                               
+                </div>
 
+            </div>
+
+            <div id="pagedetail-pagecontent-zeroopaquetext">
+                    This text is for the purposing of ensuring the page border is rendered in full. This text should not be deleted. This text is for the purposing of ensuring the page border is rendered in full. This text should not be deleted.                                                                                                                        
             </div>
             
             </div>
             </BorderWrapper>
+            </div>
         )
 
     }

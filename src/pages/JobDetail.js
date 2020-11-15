@@ -2,10 +2,12 @@ import React from 'react';
 import NavigationMain  from '../components/NavigationMain';
 import JobDetailMainNavigationBar from '../components/JobDetailMainNavigationBar';
 import JobDetailDataDisplayArea from '../components/JobDetailDataDisplayArea';
+import JobDetailsSideNavigation from '../components/JobDetailsSideNavigation';
 import { Container, Row, Col, Table, Button, Nav } from 'react-bootstrap';
 
 
 import '../css/global/pages.css';
+import '../css/global/pagedetail.css';
 
 
 class JobDetail extends React.Component{
@@ -35,25 +37,29 @@ class JobDetail extends React.Component{
                      <hr  id="hr-linebreak-style" />
                 </Col>
             </Row>
+            <Row>
+                <Col>
+                <div id = "pagedetail-mainnavigation-background">
+                        <JobDetailMainNavigationBar/>
+
+                    </div>
+                </Col>
+            </Row>
             <Row> 
                 <Col xs={2} >   
-                   
+                    <JobDetailsSideNavigation/>
                        
                    
                 </Col>
                 <Col xs={8}>
-                
-                    <div>
-                        <JobDetailMainNavigationBar/>
+          
 
-                    </div>
                     <div id ="pagedetail-detail-linebreak-style">
                     
                         <JobDetailDataDisplayArea jobid={this.props.match.params.jobid} />
 
                     </div>
-
-                    
+                
                   
                 </Col>
                 <Col xs={2}>
