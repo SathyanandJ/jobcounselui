@@ -29,11 +29,11 @@
     justify-content: center;
     width: 20%;
     white-space: nowrap;
-    margin-right: -1px;
+    
   }
 
   #pagemain-navigation-main-custom-btn-selected:hover {
-text-decoration: underline;
+    text-decoration: underline;
   }
 
   #pagemain-navigation-searchbox {

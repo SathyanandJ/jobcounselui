@@ -23,13 +23,18 @@ class NavigationMain extends Component {
             console.log(res.data)
             this.props.updateSector(res.data);               
         })
-
-    }
+   }
 
     handleClick = (e) => {
-       console.log('Clicked :',e.target.value);
-       e.target.id="pagemain-navigation-main-custom-btn-selected";
-       this.props.updateSelectedSector(e.target.value);
+        var targetValue = e.target.value;
+       console.log('Clicked :',targetValue);
+       this.props.updateSelectedSector(targetValue);
+
+       axios.get('http://localhost:8080/services/v1/jobs/'+targetValue)
+        .then ( res => {
+            console.log('Jobs : ' + res.data);            
+            this.props.updateJobsBySelectedSector(res.data);
+        })
        this.setState({
         currentPageSelectedNavigationItem: e.target.value
        });
@@ -69,22 +74,7 @@ class NavigationMain extends Component {
                     <Button value = { this.props.posts[4].id } id={this.chooseSelectedButtonStyle(this.props.posts[4].id) } onClick = { e => this.handleClick(e)}>{this.props.posts[4].name} </Button>
                 </div>
 
-                {/* <Navbar bg="light" variant="light" id="nav-width">
-                    
-                    <Nav className="mr-auto">
-                        
-                         <Nav.Link href="#home" id ="topnavbuttonprop">{this.props.posts[0].name} </Nav.Link>
-                        <Nav.Link href="#features" id ="topnavbuttonprop">{this.props.posts[1].name}</Nav.Link>
-                        <Nav.Link href="#pricing" id ="topnavbuttonprop">{this.props.posts[2].name}</Nav.Link>
-                        <Nav.Link href="#pricing" id ="topnavbuttonprop">{this.props.posts[3].name}</Nav.Link>
-                        <Nav.Link href="#pricing" id ="topnavbuttonprop">{this.props.posts[4].name}</Nav.Link>
-                    </Nav>
-                    <Form inline>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                    <Button variant="outline-primary">Search</Button>
-                    </Form>
-                </Navbar> */}
-              
+             
             </div>
         )
     }
@@ -104,6 +94,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         updateSelectedSector : (selectedSector) => {
             dispatch({type : 'UPDATE_SELECTED_SECTOR_BY_USER', data: selectedSector})
+        },
+        updateJobsBySelectedSector :(jobsAsList) => {
+            dispatch({type: 'UPDATE_JOBS_FROM_REST',data : jobsAsList})
         }
     }
 }

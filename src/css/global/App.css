@@ -114,9 +114,22 @@
 
 #leftnavdiv{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 100%;
 }
+#leftnavbuttonpropselected{
+    border-width: thin;
+    border-color: black;
+    margin-top: 3px;
+    margin-left: 3px;
+    border-radius: 6px;
+    transition-duration: 0.4s;
+    font-weight: bold;
+    white-space: pre-wrap;
+    text-decoration: none;
+    color:  #ffffff;
+    background-color: #446658;
 
+}
 #leftnavbuttonprop{
     border-width: thin;
     border-color: black;
@@ -127,11 +140,14 @@
     transition-duration: 0.4s;
     background-color:  #F4FBFE;
     font-weight: bold;
+    white-space: pre-wrap;
+    text-decoration: none;
 
 }
+
 #leftnavbuttonprop:hover{
-    color:  maroon;
-    background-color: #92DFF3;
+    color:  #ffffff;
+    background-color: #446658;
 }
 
 

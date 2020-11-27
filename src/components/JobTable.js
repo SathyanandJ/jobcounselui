@@ -66,7 +66,6 @@ class JobTable extends Component{
 
       ]
     componentDidMount() {
-
         axios.get('http://localhost:8080/services/v1/jobs/1')
         .then ( res => {
             console.log('Jobs : ' + res.data);            
