@@ -94,3 +94,22 @@
   #pagemain-mainnavigation-background{
     background-color: #78acaf;
   }
+
+
+  .page-item.active .page-link{
+    
+    color: black;
+    background: #446658;
+    color: #ffffff;
+    font-family: arial,sans-serif;
+
+  }
+
+  .page-link{
+    
+    color: black;
+    background: #446658;
+    color: #ffffff;
+    font-family: arial,sans-serif;
+
+  }

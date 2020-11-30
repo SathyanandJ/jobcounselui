@@ -18,7 +18,7 @@ const customTotal = (from, to, size) => (
   );
   
 const pageOptions = {
-    paginationSize: 19,
+    paginationSize: 14,
     pageStartIndex: 1,
     // alwaysShowAllBtns: true, // Always show next and previous button
     // withFirstAndLast: false, // Hide the going to First and Last page button
@@ -36,7 +36,7 @@ const pageOptions = {
     paginationTotalRenderer: customTotal,
     disablePageTitle: true,
     sizePerPageList: [ {
-      text: '10', value: 10
+      text: '15', value: 15
     }] // A numeric array is also available. the purpose of above example is custom the text
   };
 
