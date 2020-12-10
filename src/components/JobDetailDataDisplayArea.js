@@ -8,6 +8,10 @@ import '../css/global/App.css'
 import '../css/global/pagedetail.css'
 import { connect } from 'react-redux';
 
+import appenvironment from '../config/environment.json';
+
+
+
 class JobDetailDataDisplayArea extends Component {
 
     constructor(props){
@@ -28,15 +32,15 @@ class JobDetailDataDisplayArea extends Component {
     }
 
     componentDidMount(){
+        console.log("State:" +this.props.currentlyselectedsector);
         var jobidtogetdetails = this.props.jobid;
         console.log('Fetching Job Details For JobId :'+jobidtogetdetails)
-        axios.get('http://localhost:8080/services/v1/jobs/' + jobidtogetdetails + '/detail')
+        axios.get(appenvironment.SERVER_URL +'jobs/' + jobidtogetdetails + '/detail')
         .then( res  => {
             console.log(res.data)
             this.props.upgateJobDetail(res.data);               
         })
     }
-
 
 
     render() {
@@ -181,12 +185,12 @@ class JobDetailDataDisplayArea extends Component {
             <div id ="pagedetail-pagecontent-button-content">
 
                 <div id ="pagedetail-pagecontent-button-content-left">
-                        <Button href= {this.props.jobsdetail.jobdetailslnk} id="pagedetail-pagecontent-button-custom-btn" >View Advertisement</Button>
+                        <Button href= {this.props.jobsdetail.jobdetailslnk} target = "_blank" id="pagedetail-pagecontent-button-custom-btn" >View Advertisement</Button>
                                
 
                 </div>
                 <div id ="pagedetail-pagecontent-button-content-right">
-                                <Button href= {this.props.jobsdetail.jobapplylnk} id="pagedetail-pagecontent-button-custom-btn" >Click To Apply</Button>
+                                <Button href= {this.props.jobsdetail.jobapplylnk} target="_blank" id="pagedetail-pagecontent-button-custom-btn" >Click To Apply</Button>
                                
                 </div>
 
@@ -206,7 +210,8 @@ class JobDetailDataDisplayArea extends Component {
 
 const mapStateToStore = (state) => {
     return {
-        jobsdetail: state.jobsdetail
+        jobsdetail: state.jobsdetail,
+        currentlyselectedsector: state.jobs
     }
 }
 

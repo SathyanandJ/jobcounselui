@@ -1,3 +1,5 @@
+@media all and (max-width:5000px) and (min-width : 768px) {
+
 #nav-dropdown{
     color: black;
     font-weight: bold;
@@ -128,7 +130,7 @@
     text-decoration: none;
     color:  #ffffff;
     background-color: #446658;
-
+    font-family: arial,sans-serif;
 }
 #leftnavbuttonprop{
     border-width: thin;
@@ -142,7 +144,7 @@
     font-weight: bold;
     white-space: pre-wrap;
     text-decoration: none;
-
+    font-family: arial,sans-serif;
 }
 
 #leftnavbuttonprop:hover{
@@ -172,3 +174,259 @@
     display: flex;
     justify-content: center;
   }
+
+
+ #breadcrumb-list .breadcrumb-current {
+    background-color: #000;
+    color: #ddd;
+}
+
+#appbanner-header-textalign {
+     background-color:#446658;
+     display: flex;
+     justify-content:right;
+     font-size: 1em;
+     margin-top: -0.5em;
+     align-content: flex-end;
+     justify-content: flex-end;
+}
+
+#appbanner-nav-breadcrumb{
+    height: 4em;
+    padding-top: 1em;
+    font-size: medium;
+}
+
+.breadcrumb {
+    background-color: #446658;
+}
+
+#appbanner-footer-textalign {
+    background-color:#446658;
+    display: flex;
+    font-size: 1em;
+    margin-top: -0.5em;
+    align-content: center;
+    justify-content: center;
+    height: 3em;
+    padding-top: 0em;
+}
+
+
+}
+
+
+@media all and (max-width:767px)  {
+
+    #nav-dropdown{
+        color: black;
+        font-weight: bold;
+        padding-left: 25px;
+        padding-right: 25px;
+        
+    }
+    
+    #nav-width{
+        background-color: rgba(48, 3, 22, 0.075);
+        width: 68%;
+        margin-left: 17%;
+        margin-right: 25%;
+        margin-top: 1vh;
+        margin-bottom: 3vh;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    #hr-linebreak-style{
+        width: 100%;
+        color: black;
+        background-color:black ;
+        height: 5px;
+        border-color: brown ;  
+        margin-top: 20vh;
+    }
+    
+    #hr-linebreak-style-page-simple{
+        width: 100%;
+        color: black;
+        background-color:black ;
+        height: 5px;
+        border-color: brown ;  
+        margin-top: 2vh;
+    }
+    
+    
+    #app-row-border{
+        border-width: 5px;
+        border-color: brown ;  
+        color: black;
+        background-color: rgba(48, 3, 22, 0.075);
+        margin-left: 2vh;
+        margin-right: 5vh;
+    }
+    
+    #app-button-outlay-weight{
+        /*top: 10px;
+        left: 10px; */
+        position: relative;
+        position: sticky;
+        position: -webkit-sticky;
+        margin-top: 5rem;
+        color: black;
+        font-weight: bold;
+        background-color: rgba(48, 3, 22, 0.075);
+        border-width: 10px;
+        border: maroon;
+        vertical-align: 5vmax;
+        
+        /*position: -ms-page;
+           */   
+       
+        
+    }
+    
+    
+    #container {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+      
+        border: 2px dashed rgba(114, 186, 94, 0.35);
+        height: 4000px;
+        background: rgba(114, 186, 94, 0.05);
+        
+        
+      }
+      
+      #pirate {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 4rem;
+      }
+    
+    
+    #app-button-weight{
+        position: relative;
+        margin-top: 2vh;
+        color: black;
+        font-weight: bold;
+        text-decoration: underline;
+        vertical-align: auto;
+    }
+    
+    #app-page-text-header-style{
+        margin-top: 5vh;
+        background-color:  rgba(48, 3, 22, 0.075);
+    }
+    
+    /* #alignleft{
+        text-align: left;
+      
+     
+    
+    } */
+    
+    /* #alignright{
+        text-align: right;
+       
+        
+    } */
+    
+    #leftnavdiv{
+        display: grid;
+        grid-template-columns: 100%;
+    }
+    #leftnavbuttonpropselected{
+        border-width: thin;
+        border-color: black;
+        margin-top: 3px;
+        margin-left: 3px;
+        border-radius: 6px;
+        transition-duration: 0.4s;
+        font-weight: bold;
+        white-space: pre-wrap;
+        text-decoration: none;
+        color:  #ffffff;
+        background-color: #446658;
+        font-family: arial,sans-serif;
+    }
+    #leftnavbuttonprop{
+        border-width: thin;
+        border-color: black;
+        color: black;
+        margin-top: 3px;
+        margin-left: 3px;
+        border-radius: 6px;
+        transition-duration: 0.4s;
+        background-color:  #F4FBFE;
+        font-weight: bold;
+        white-space: pre-wrap;
+        text-decoration: none;
+        font-family: arial,sans-serif;
+    }
+    
+    #leftnavbuttonprop:hover{
+        color:  #ffffff;
+        background-color: #446658;
+    }
+    
+    
+    
+    #topnavbuttonprop{
+        background-color:  rgba(48, 3, 22, 0.075);
+        border-width: thin;
+        border-color: maroon;
+        color: black;
+        transition-duration: 0.4s;
+        font-weight: bold;
+    
+    }
+    
+    #custom-btn {
+        background: #1E92EB;
+        color: #ffffff;
+        border-radius: 3px;
+        border: 2px solid black;
+        padding: 15px 30px;
+        font-family: arial,sans-serif;
+        display: flex;
+        justify-content: center;
+      }
+    
+    
+     #breadcrumb-list .breadcrumb-current {
+        background-color: #000;
+        color: #ddd;
+    }
+
+    #appbanner-header-textalign {
+        background-color:"#446658"!important;
+        display: flex;
+        justify-content:right;
+        font-size: 1em;
+        margin-top: -0.5em;
+        align-content: flex-end;
+        justify-content: flex-end;
+   }
+   
+   #appbanner-nav-breadcrumb{
+       height: 4em;
+       padding-top: 1em;
+       font-size: medium;
+   }
+   
+   .breadcrumb {
+       background-color: #446658;
+   }
+    
+   #appbanner-footer-textalign {
+    background-color:#446658;
+    display: flex;
+    font-size: 1em;
+    margin-top: -0.5em;
+    align-content: center;
+    justify-content: center;
+    height: 3em;
+    padding-top: 0em;
+}
+    }

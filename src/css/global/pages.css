@@ -1,3 +1,4 @@
+@media all and (max-width:5000px) and (min-width : 768px) {
 #testleftalign{
     float: left;
     margin-left: 2px;
@@ -7,3 +8,17 @@
     float:right;
     margin-right: 2px;
 }
+}
+
+
+@media all and (max-width:767px) {
+    #testleftalign{
+        float: left;
+        margin-left: 2px;
+    }
+    
+    #textrightalign{
+        float:right;
+        margin-right: 2px;
+    }
+    }

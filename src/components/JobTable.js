@@ -5,9 +5,12 @@ import { connect } from 'react-redux';
 import BootstrapTable from 'react-bootstrap-table-next'; 
 import axios from 'axios';
 import paginationFactory from 'react-bootstrap-table2-paginator';
+import {Link} from 'react-router-dom';
 
 import '../css/global/App.css'
 import '../css/global/pagemain.css'
+
+import appenvironment from '../config/environment.json';
 
 
 
@@ -42,7 +45,15 @@ const pageOptions = {
 
 class JobTable extends Component{
 
-         
+
+      constructor(props) {
+        super(props);
+        this.state = {
+          currentselectedsector: this.props.currentselectedsector
+        }
+    }
+        
+      
     columnNames = [
         { dataField: 'organizationName', text:'Organization',headerStyle: () => {
             return { width: "15%",textAlign: 'center',backgroundColor:'#446658',border:'2px solid black' ,color:'#ffff', font:'100% arial,sans-serif' };
@@ -59,18 +70,23 @@ class JobTable extends Component{
         { dataField: 'jobApplyLastDate', text:'Last Date' ,headerStyle: () => {
             return { width: "10%",textAlign: 'center',backgroundColor:'#446658',border:'2px solid black',color:'#ffff' , font:'100% arial,sans-serif' };
           }},
-        { dataField:'details' , text:'Details',formatExtraData:'' , formatter: (cell, row,rowIndex,formatExtraData) =>  <a href={"jobdetail/"+row.id}> <button type="button" id ="pagemain-jobtable-details-btn">
-             {cell} </button> </a> ,headerStyle: () => {
+        { dataField:'details' , text:'Details',formatExtraData:'' , formatter: (cell, row,rowIndex,formatExtraData) =>  <Link to={"/jobcounsel/jobdetail/"+row.id}> <button type="button" id ="pagemain-jobtable-details-btn">
+             {cell} </button> </Link> ,headerStyle: () => {
             return { width: "8%",textAlign: 'center',padding:'10px 0',backgroundColor:'#446658',border:'2px solid black',color:'#ffff' , font:'100% arial,sans-serif'};
           } },       
 
       ]
     componentDidMount() {
-        axios.get('http://localhost:8080/services/v1/jobs/1')
-        .then ( res => {
-            console.log('Jobs : ' + res.data);            
-            this.props.updateJobs(res.data);
-        })
+       var searchQuery = this.props.searchquery;
+
+       if( typeof searchQuery == 'undefined'){
+
+          axios.get(appenvironment.SERVER_URL+'jobs/'+this.state.currentselectedsector)
+          .then ( res => {
+              console.log('Jobs : ' + res.data);            
+              this.props.updateJobs(res.data);
+          })
+      }
     }
 
     render() {
@@ -85,7 +101,7 @@ class JobTable extends Component{
                 data = {this.props.jobs}    
                 columns =  { this.columnNames }
                 rowStyle = { { backgroundColor: '#F4FBFE' } }
-                
+                wrapperClasses="table-responsive"
                 >
  
 
@@ -101,7 +117,8 @@ class JobTable extends Component{
 
 const mapStateToStore = (state) => {
     return {
-        jobs : state.jobs
+        jobs : state.jobs,
+        currentselectedsector: state.mainpage_mainnavigation_selected
     }
 }
 

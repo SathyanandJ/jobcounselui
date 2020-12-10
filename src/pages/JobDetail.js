@@ -1,13 +1,11 @@
 import React from 'react';
-import NavigationMain  from '../components/NavigationMain';
 import JobDetailMainNavigationBar from '../components/JobDetailMainNavigationBar';
 import JobDetailDataDisplayArea from '../components/JobDetailDataDisplayArea';
 import JobDetailsSideNavigation from '../components/JobDetailsSideNavigation';
+import HeaderBanner from '../components/AppHeaderBanner';
+import FooterBanner from '../components/AppFooterBanner';
 import { Container, Row, Col, Table, Button, Nav } from 'react-bootstrap';
 
-
-import '../css/global/pages.css';
-import '../css/global/pagedetail.css';
 
 
 class JobDetail extends React.Component{
@@ -26,32 +24,31 @@ class JobDetail extends React.Component{
     render() {
         
         return (
-            <Container fluid id="app-continer-all-pages-style">
+            <Container fluid >
 
             <Row>
-                <Col>
-                </Col>
+                
+                <Col lg={12} xl={12} md={12} sm={12} xs ={12}>
+                        <HeaderBanner/>
+                 </Col>
             </Row>
+
+
             <Row>
-                <Col>
-                     <hr  id="hr-linebreak-style" />
-                </Col>
-            </Row>
-            <Row>
-                <Col>
-                <div id = "pagedetail-mainnavigation-background">
+                <Col lg={12} xl={12} md={12} sm={12} xs ={12}>
+                    <div id = "pagedetail-mainnavigation-background">
                         <JobDetailMainNavigationBar/>
 
                     </div>
                 </Col>
             </Row>
             <Row> 
-                <Col xs={2} >   
-                    <JobDetailsSideNavigation/>
-                       
+                <Col lg={2} xl={2} md={0} sm ={0} xs={0} className='d-none d-lg-block d-xl-block' >   
                    
+                    <JobDetailsSideNavigation/>
+                                         
                 </Col>
-                <Col xs={8}>
+                <Col lg={8} xl={8} md={12} sm={12} xs={12}>
           
 
                     <div id ="pagedetail-detail-linebreak-style">
@@ -62,10 +59,20 @@ class JobDetail extends React.Component{
                 
                   
                 </Col>
-                <Col xs={2}>
+                <Col lg={2} xl={2} md={0} sm={0} xs={0}>
 
                 </Col>
             </Row>
+
+
+            <Row style={{height:"100px"}}></Row>
+            <Row>
+                <Col lg={12} xl={12} md={12} sm={12} xs={12}>
+                    <FooterBanner/>
+                </Col>
+
+            </Row>
+            <Row style={{height:"100px"}}></Row>
 
             </Container>
         );

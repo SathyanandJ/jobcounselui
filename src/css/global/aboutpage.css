@@ -1,0 +1,110 @@
+@media all and (max-width:5000px) and (min-width : 768px) {
+
+    .appstatic-breadcrumb-header-textalign {
+        background-color:#446658;
+        display: flex;
+        font-size: 1.0em;
+        margin-top: -0.5em;
+        align-content: left;
+        justify-content: left;
+        height: 3em;
+        padding-top: 0em;
+        color: #F4FBFE;
+        font-weight: bold;
+        font-family: arial,sans-serif;
+    }
+
+    .about-text-format{
+        padding-top:1em;
+        text-align: justify;
+        text-justify: inter-word;
+        font-family: arial,sans-serif;
+        font-size: 1.25em;
+    }
+
+    #pageabout-mainnavigation-custom-button {
+        margin-top: 1px;
+        background: #446658;
+        color: #F4FBFE;
+        border-radius: 2px;
+        border: 1px solid black;
+        padding: 15px 30px;
+        font-family: arial,sans-serif;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        width: 10%;
+    }
+    
+    #pageabout-mainnavigation-custom-button:hover{
+        text-decoration: underline;
+        background: #446658;
+        border: 1px solid black;
+    }
+
+    #pageabout-mainnavigation-custom-link {
+        color:#F4FBFE;
+    }
+   
+    #pageabout-mainnavigation-background{
+        background-color: #78acaf ;
+    }
+
+  
+}
+
+
+@media all and (max-width:767px)  {
+
+    .appstatic-breadcrumb-header-textalign {
+        background-color:#446658;
+        display: flex;
+        font-size: 1.0em;
+        margin-top: -0.5em;
+        align-content: left;
+        justify-content: left;
+        height: 3em;
+        padding-top: 0em;
+        color: #F4FBFE;
+        font-weight: bold;
+        font-family: arial,sans-serif;
+    }
+
+    .about-text-format{
+        padding-top:1em;
+        text-align: justify;
+        text-justify: inter-word;
+        font-family: arial,sans-serif;
+        font-size: 1.25 em;
+    }
+
+    #pageabout-mainnavigation-custom-button {
+        margin-top: 1px;
+        background: #446658;
+        color: #F4FBFE;
+        border-radius: 2px;
+        border: 1px solid black;
+        padding: 15px 30px;
+        font-family: arial,sans-serif;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        width: 10%;
+    }
+    
+    #pageabout-mainnavigation-custom-button:hover{
+        text-decoration: underline;
+        background: #446658;
+        border: 1px solid black;
+    }
+
+    #pageabout-mainnavigation-custom-link {
+        color:#F4FBFE;
+    }
+   
+    #pageabout-mainnavigation-background{
+        background-color: #78acaf ;
+    }
+
+
+}

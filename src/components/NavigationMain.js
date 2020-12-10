@@ -7,6 +7,10 @@ import axios from 'axios';
 import '../css/global/App.css'
 import '../css/global/pagemain.css'
 
+import appenvironment from '../config/environment.json';
+
+
+
 
 class NavigationMain extends Component {
 
@@ -18,7 +22,8 @@ class NavigationMain extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://localhost:8080/services/v1/jobs/sectors')
+        
+        axios.get(appenvironment.SERVER_URL+'jobs/sectors')
         .then( res  => {
             console.log(res.data)
             this.props.updateSector(res.data);               
@@ -27,10 +32,10 @@ class NavigationMain extends Component {
 
     handleClick = (e) => {
         var targetValue = e.target.value;
-       console.log('Clicked :',targetValue);
+
        this.props.updateSelectedSector(targetValue);
 
-       axios.get('http://localhost:8080/services/v1/jobs/'+targetValue)
+       axios.get(appenvironment.SERVER_URL+'jobs/'+targetValue)
         .then ( res => {
             console.log('Jobs : ' + res.data);            
             this.props.updateJobsBySelectedSector(res.data);
@@ -44,8 +49,7 @@ class NavigationMain extends Component {
     chooseSelectedButtonStyle = (buttonId) => {
         var buttonIdVar = parseInt(buttonId,10);
         var currentPageSelectedVar = parseInt(this.state.currentPageSelectedNavigationItem,10);
-        console.log("chooseSelectedButtonStyle:",buttonId);
-        console.log("chooseSelectedButtonStyle currentPageSelectedNavigationItem:",this.state.currentPageSelectedNavigationItem);
+
         if(buttonIdVar === currentPageSelectedVar){
             console.log("Returning pagemain-navigation-main-custom-btn-selected for buttonId Selected: ",buttonId  ,this.state.currentPageSelectedNavigationItem);
             return "pagemain-navigation-main-custom-btn-selected";
@@ -62,10 +66,9 @@ class NavigationMain extends Component {
         console.log({ sectors })
 
         return (
-            <div>
+             
                 
-                
-                <div  className="Form" style={{ display: "flex", justifyContent: "left" }}>
+                <div  className="Form" style={{ display: "flex", justifyContent: "center", width:"100%" ,paddingLeft:"15px", paddingRight:"15px",marginTop:"1em"}}>
            
                     <Button value = { this.props.posts[0].id } id={this.chooseSelectedButtonStyle(this.props.posts[0].id) } onClick = { e => this.handleClick(e)} >{this.props.posts[0].name} </Button>
                     <Button value = { this.props.posts[1].id } id={this.chooseSelectedButtonStyle(this.props.posts[1].id) } onClick = { e => this.handleClick(e)}>{this.props.posts[1].name} </Button> 
@@ -75,10 +78,11 @@ class NavigationMain extends Component {
                 </div>
 
              
-            </div>
         )
     }
 }
+
+
 
 const mapStateToStore = (state) => {
     return {

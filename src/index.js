@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-//import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Home from './pages/Home';
 import JobDetail from './pages/JobDetail'
@@ -10,6 +9,7 @@ import About from './pages/About';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import  BankJobMain  from './pages/bankjobs/bankjobmain';
+import {Switch}  from "react-router-dom";
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
@@ -30,14 +30,13 @@ ReactDOM.render(
 ReactDOM.render(<Provider store = {store}>
   <Router >
 
-    <switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/home" component={Home} />
-      <Route exact path="/about" component={About} />
-      <Route exact path="/contact" component={Contact} />
-      <Route exact path="/bankjobs" component={BankJobMain} />
-      <Route exact path="/jobdetail/:jobid" component={JobDetail}/>
-    </switch>
+    <Switch>
+      <Route exact path="/jobcounsel/" component={Home} />
+      <Route exact path="/jobcounsel/home" component={Home} />
+      <Route exact path="/jobcounsel/home/:searchquery" component={Home} />
+      <Route exact path="/jobcounsel/about" component={About} />
+      <Route exact path="/jobcounsel/jobdetail/:jobid" component={JobDetail}/>
+    </Switch>
 
   </Router>
 

@@ -1,5 +1,6 @@
 import React , { Component } from 'react';
-import { Navbar, Nav, NavDropdown ,Form,FormControl,Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 import '../css/global/App.css'
@@ -7,10 +8,9 @@ import '../css/global/App.css'
 class JobDetailMainNavigationBar extends Component {
     render () {
         return (
-            <div  className="Form" style={{ display: "flex", justifyContent: "center" }}
-          >
+            <div  className="Form" style={{ justifyContent: "center" ,padding:"2em 2em"}}>
            
-                <Button href="/" id="custom-btn" >Home</Button>
+                <Button id="pagedetail-mainnavigation-custom-button" ><Link to ="/jobcounsel/home" id="jobdetail-mainnavigation-custom-link">Home</Link></Button>
             </div>
 
         );
