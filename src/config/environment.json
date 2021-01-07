@@ -1,4 +1,4 @@
 {
-    "CURRENT_ENVIRONMENT":"DEVELOPMENT",
-    "SERVER_URL":"http://localhost:9090/services/v1/"
+    "CURRENT_ENVIRONMENT":"PRODUCTION",
+    "SERVER_URL":"http://35.154.227.23:9090/services/v1/"
 }

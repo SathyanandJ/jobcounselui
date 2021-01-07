@@ -11,7 +11,7 @@ class AboutPageMainNavigation extends Component {
         return (
             <div className="Form" style={{ justifyContent: "center", padding:"2em 2em"}}>
            
-                <Button id="pageabout-mainnavigation-custom-button"><Link to="/jobcounsel" id="pageabout-mainnavigation-custom-link"> Home</Link></Button>
+                <Button id="pageabout-mainnavigation-custom-button"><Link to="/" id="pageabout-mainnavigation-custom-link"> Home</Link></Button>
             </div>
 
         );

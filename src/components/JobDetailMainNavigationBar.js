@@ -10,7 +10,7 @@ class JobDetailMainNavigationBar extends Component {
         return (
             <div  className="Form" style={{ justifyContent: "center" ,padding:"2em 2em"}}>
            
-                <Button id="pagedetail-mainnavigation-custom-button" ><Link to ="/jobcounsel/home" id="jobdetail-mainnavigation-custom-link">Home</Link></Button>
+                <Button id="pagedetail-mainnavigation-custom-button" ><Link to ="/home" id="jobdetail-mainnavigation-custom-link">Home</Link></Button>
             </div>
 
         );

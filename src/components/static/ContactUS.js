@@ -18,11 +18,7 @@ class ContactUS extends Component {
                         </ol>
                     </nav>
 
-                    <h5 className="about-text-format">This is textual This is textual content.content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.
-                    This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.
-                    This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.
-                    This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.
-                    This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.
+                    <h5 className="about-text-format"> Mail us at jobcounselindia@gmail.com
                     </h5>
 
             </div>

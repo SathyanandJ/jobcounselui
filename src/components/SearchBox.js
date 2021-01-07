@@ -26,6 +26,8 @@ class SearchBox extends Component{
 
 
         if( typeof searchQuery != 'undefined'){
+
+            
            
             this.setState({
                 searchboxtext: searchQuery
@@ -39,13 +41,14 @@ class SearchBox extends Component{
             })
             
         }
-
     }
 
 
     handleSearchClick = (e) => {
         var currentSelectedSector = this.props.mainpage_mainnavigation_selected;
         var searchText = this.state.searchboxtext;
+
+        searchText = searchText.replace(/([^a-z0-9 "]+)/gi, "");
         
         axios.get(appenvironment.SERVER_URL+'jobs/search/'+currentSelectedSector+'?searchquery='+searchText)
         .then ( res => {

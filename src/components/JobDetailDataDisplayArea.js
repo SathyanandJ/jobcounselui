@@ -31,6 +31,21 @@ class JobDetailDataDisplayArea extends Component {
         }
     }
 
+    deriveSalaryInfo(salary){
+        if(salary < 100){
+            if(salary === 1){
+                return "Negotiable";
+            }
+            else if( salary === 2){
+                return "Salary Depends on Eligibility such as last drawn Pay, Experience. etc";
+            }else if( salary === 3) {
+                return "Salary Based On Apprentice Act 1961";
+            }
+        }else{
+            return salary + " INR";
+        }
+    }
+
     componentDidMount(){
         console.log("State:" +this.props.currentlyselectedsector);
         var jobidtogetdetails = this.props.jobid;
@@ -49,11 +64,19 @@ class JobDetailDataDisplayArea extends Component {
             <div id="pagedetail-pagecontent-div-wholepage">
             <BorderWrapper rightOffset='100px' >
             <div >
+
+            <div >
+                
+                <div id="pagedetail-pagecontent-text-content-title"> 
+
+                  {this.props.jobsdetail.jobTitle}
+                
+                </div>
+            </div>
                 
             <div >
-                <div id="pagedetail-pagecontent-text-header-start">
+                <div id="pagedetail-pagecontent-text-header">
                      Organization:
-
                 </div>
                 <div id="pagedetail-pagecontent-text-content"> 
 
@@ -69,7 +92,7 @@ class JobDetailDataDisplayArea extends Component {
                 </div>
                 <div id="pagedetail-pagecontent-text-content"> 
 
-                    {this.props.jobsdetail.salaryPerMonth} INR
+                    {this.deriveSalaryInfo(this.props.jobsdetail.salaryPerMonth)}
                 
                 </div>
             </div>

@@ -14,7 +14,7 @@ class AppFooterBanner extends Component {
         return (
             <nav aria-label="breadcrumb" id ="appbanner-footer-textalign">
                 <ol class="breadcrumb" style={{backgroundColor:"#446658"}}>
-                    <li class="breadcrumb-item"><Link to ="/jobcounsel/about#termsofservice" style={{color:"#ffffff",font:"arial,sans-serif", textAlign:"centre"}}>Terms Of Usage</Link></li>
+                    <li class="breadcrumb-item"><Link to ="/about#termsofservice" style={{color:"#ffffff",font:"arial,sans-serif", textAlign:"centre"}}>Terms Of Use</Link></li>
       
                     
                 </ol>

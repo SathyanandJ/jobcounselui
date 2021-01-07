@@ -14,8 +14,8 @@ class AppHeaderBanner extends Component {
         return (
             <nav aria-label="breadcrumb"id="appbanner-nav-breadcrumb">
                 <ol class="breadcrumb" id="appbanner-header-textalign">
-                    <li class="breadcrumb-item"><Link to = "/jobcounsel/about#aboutus" style={{color:"#ffffff",font:"arial,sans-serif"}}>About US</Link></li>
-                    <li class="breadcrumb-item"><Link to = "/jobcounsel/about#contactus" style={{color:"#ffffff",font:"arial,sans-serif"}}>Contact US</Link></li>
+                    <li class="breadcrumb-item"><Link to = "/about#aboutus" style={{color:"#ffffff",font:"arial,sans-serif"}}>About US</Link></li>
+                    <li class="breadcrumb-item"><Link to = "/about#contactus" style={{color:"#ffffff",font:"arial,sans-serif"}}>Contact US</Link></li>
                     
                 </ol>
             </nav>

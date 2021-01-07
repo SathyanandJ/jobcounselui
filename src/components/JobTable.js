@@ -19,6 +19,10 @@ const customTotal = (from, to, size) => (
       Showing { from } to { to } of { size } Results
     </span>
   );
+
+const pageChange = (newPageNo) => {
+  window.scrollTo(0, 0);
+}
   
 const pageOptions = {
     paginationSize: 14,
@@ -37,6 +41,7 @@ const pageOptions = {
     lastPageTitle: 'Last page',
     showTotal: true,
     paginationTotalRenderer: customTotal,
+    onPageChange: pageChange,
     disablePageTitle: true,
     sizePerPageList: [ {
       text: '15', value: 15
@@ -70,7 +75,7 @@ class JobTable extends Component{
         { dataField: 'jobApplyLastDate', text:'Last Date' ,headerStyle: () => {
             return { width: "10%",textAlign: 'center',backgroundColor:'#446658',border:'2px solid black',color:'#ffff' , font:'100% arial,sans-serif' };
           }},
-        { dataField:'details' , text:'Details',formatExtraData:'' , formatter: (cell, row,rowIndex,formatExtraData) =>  <Link to={"/jobcounsel/jobdetail/"+row.id}> <button type="button" id ="pagemain-jobtable-details-btn">
+        { dataField:'details' , text:'Details',formatExtraData:'' , formatter: (cell, row,rowIndex,formatExtraData) =>  <Link to={"/jobdetail/"+row.id}> <button type="button" id ="pagemain-jobtable-details-btn">
              {cell} </button> </Link> ,headerStyle: () => {
             return { width: "8%",textAlign: 'center',padding:'10px 0',backgroundColor:'#446658',border:'2px solid black',color:'#ffff' , font:'100% arial,sans-serif'};
           } },       
@@ -87,6 +92,7 @@ class JobTable extends Component{
               this.props.updateJobs(res.data);
           })
       }
+      window.scrollTo(0, 0);
     }
 
     render() {

@@ -18,11 +18,7 @@ class SiteAbout extends Component {
                         </ol>
                     </nav>
 
-                    <h5 className ="about-text-format">This is textual This is textual content.content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.
-                    This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.
-                    This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.
-                    This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.
-                    This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.This is textual content.
+                    <h5 className ="about-text-format">Our aim / mission is to collect and make available information on all Indian Jobs available in the public domain under a single platform for easy usage and accessibility.
                     </h5>
 
             </div>

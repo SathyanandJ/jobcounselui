@@ -31,6 +31,11 @@ ReactDOM.render(<Provider store = {store}>
   <Router >
 
     <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/home" component={Home} />
+      <Route exact path="/home/:searchquery" component={Home} />
+      <Route exact path="/about" component={About} />
+      <Route exact path="/jobdetail/:jobid" component={JobDetail}/>
       <Route exact path="/jobcounsel/" component={Home} />
       <Route exact path="/jobcounsel/home" component={Home} />
       <Route exact path="/jobcounsel/home/:searchquery" component={Home} />

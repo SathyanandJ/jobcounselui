@@ -73,8 +73,7 @@ class NavigationMain extends Component {
                     <Button value = { this.props.posts[0].id } id={this.chooseSelectedButtonStyle(this.props.posts[0].id) } onClick = { e => this.handleClick(e)} >{this.props.posts[0].name} </Button>
                     <Button value = { this.props.posts[1].id } id={this.chooseSelectedButtonStyle(this.props.posts[1].id) } onClick = { e => this.handleClick(e)}>{this.props.posts[1].name} </Button> 
                     <Button value = { this.props.posts[2].id } id={this.chooseSelectedButtonStyle(this.props.posts[2].id) } onClick = { e => this.handleClick(e)}>{this.props.posts[2].name} </Button>
-                    <Button value = { this.props.posts[3].id } id={this.chooseSelectedButtonStyle(this.props.posts[3].id) } onClick = { e => this.handleClick(e)}>{this.props.posts[3].name} </Button>
-                    <Button value = { this.props.posts[4].id } id={this.chooseSelectedButtonStyle(this.props.posts[4].id) } onClick = { e => this.handleClick(e)}>{this.props.posts[4].name} </Button>
+                   
                 </div>
 
              

@@ -6,9 +6,9 @@ const initState = {
         
             {"id":1,"name":"Government Jobs"},
             {"id":2,"name":"Public Sector Jobs"},
-            {"id":3,"name":"Private Sector(Non-IT) Jobs"},
-            {"id":4,"name":"Private Sector(IT) Jobs"},
-            {"id":5,"name":"State Government Jobs"}
+            {"id":3,"name":"State Government Jobs"},
+            {"id":4,"name":"Private Sector(Non-IT) Jobs"},
+            {"id":5,"name":"Private Sector(IT) Jobs"}
         
     ],
 
