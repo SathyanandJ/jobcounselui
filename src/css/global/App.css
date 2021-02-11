@@ -80,10 +80,16 @@
     
   }
   
-  #pirate {
+  #autodropdown {
     position: -webkit-sticky;
     position: sticky;
-    top: 4rem;
+    top: 2rem;
+  }
+
+  #autodropdown_notifications {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20rem;
   }
 
 
@@ -119,37 +125,44 @@
     grid-template-columns: 100%;
 }
 #leftnavbuttonpropselected{
-    border-width: thin;
+    font-size: 0.90em;
+    border-width: 0.1em;
     border-color: black;
-    margin-top: 3px;
-    margin-left: 3px;
-    border-radius: 6px;
+    margin-top: 0.25em;
+    margin-left: 0.25em;
+    border-radius: 10px;
     transition-duration: 0.4s;
     font-weight: bold;
     white-space: pre-wrap;
     text-decoration: none;
     color:  #ffffff;
     background-color: #446658;
-    font-family: arial,sans-serif;
+    font-family: 'Lato bold',sans-serif !important;
 }
 #leftnavbuttonprop{
-    border-width: thin;
-    border-color: black;
+    font-size: 0.90em;
+    border-width: 0.1em;
+    border-color:white;
     color: black;
-    margin-top: 3px;
-    margin-left: 3px;
-    border-radius: 6px;
+    padding:0.25em 0.25em;
+    margin-top: 0.25em;
+    margin-left: 0.25em;
+    border-radius: 10px;
     transition-duration: 0.4s;
-    background-color:  #F4FBFE;
-    font-weight: bold;
+    background-color:  #F4FBFE; 
     white-space: pre-wrap;
-    text-decoration: none;
-    font-family: arial,sans-serif;
+    font-weight: bold;
+    text-decoration: underline;
+    font-family: 'Lato bold',sans-serif !important;
+}
+
+#pagemain-sidenavigation-branchs-area{
+    background-color: #F4FBFE;
 }
 
 #leftnavbuttonprop:hover{
     color:  #ffffff;
-    background-color: #446658;
+    background-color: #639982;
 }
 
 
@@ -181,22 +194,50 @@
     color: #ddd;
 }
 
-#appbanner-header-textalign {
-     background-color:#446658;
-     display: flex;
-     justify-content:right;
-     font-size: 1em;
-     margin-top: -0.5em;
+.appbanner-header-textalign {
+     font-size: 1.25em;
      align-content: flex-end;
-     justify-content: flex-end;
+     color: #F4FBFE;
+     font-weight: bold !important;
+     font-family: 'Lato bold',sans-serif !important;
 }
 
-#appbanner-nav-breadcrumb{
-    height: 4em;
-    padding-top: 1em;
+.appbanner-header-notifications {
+    border-radius: 10px;
+    height: 1.75em;
+}
+
+.appbanner-header-notifications-button {
+    margin-left: 0.50em;
+    margin-right: 2em;
+    border-radius: 10px;
+    background-color: #bda96d;
+    color: black;
+    border-color: black;
+    font-size: 0.85em;
+    font-family: 'Lato bold',sans-serif !important;
+    font-weight: bold !important;
+}
+
+.appbanner-header-notifications-button:hover{
+    background-color: #bda96d;
+    color: black;
+    border-color: black;
+    text-decoration: underline !important;
+    
+}
+
+.appbanner-nav-breadcrumb{
+    height: 3.5em;
     font-size: medium;
+    background-color: #446658;
+    margin-left: -1em;
+    margin-right:-1em;
+    margin-bottom: 1em;
 }
-
+.btn .btn-primary {
+    text-align: center;
+}
 .breadcrumb {
     background-color: #446658;
 }
@@ -404,7 +445,6 @@
         display: flex;
         justify-content:right;
         font-size: 1em;
-        margin-top: -0.5em;
         align-content: flex-end;
         justify-content: flex-end;
    }

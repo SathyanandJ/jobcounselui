@@ -27,7 +27,13 @@ const initState = {
 
     mainpage_mainnavigation_selected:1,
 
-    mainpage_sidenavigation_selected:0
+    mainpage_sidenavigation_selected:0,
+
+    jobNotification_loaded_from_db:false,
+
+    jobNotification_data :[
+
+    ]
 
 }
 
@@ -85,6 +91,14 @@ const rootReducer = (state = initState,action) => {
             branches_for_selectedsector: selectedBranches,
             mainpage_sidenavigation_selected:0
             
+        }
+    }
+
+    else if(action.type === 'UPDATE_LATEST_JOB_NOTIFICATIONS_VIA_REST'){
+        return{
+            ...state,
+            jobNotification_loaded_from_db:true,
+            jobNotification_data : action.data
         }
     }
     

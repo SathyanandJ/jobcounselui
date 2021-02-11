@@ -19,6 +19,10 @@ import rootReducer from './reducers/rootReducer'
 
 const store = createStore(rootReducer);
 
+let hashHistory = Router.hashHistory;
+
+const reload = () => window.location.reload();
+
 /* 
 ReactDOM.render(
   <React.StrictMode>
@@ -28,19 +32,23 @@ ReactDOM.render(
 ); */
 
 ReactDOM.render(<Provider store = {store}>
-  <Router >
+  <Router history={hashHistory} >
 
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/home" component={Home} />
       <Route exact path="/home/:searchquery" component={Home} />
       <Route exact path="/about" component={About} />
-      <Route exact path="/jobdetail/:jobid" component={JobDetail}/>
+      <Route exact path="/jobdetail/:jobid/:jobdesig/:joborgname" component={JobDetail}/>
+      <Route exact path="/jobdetail/:jobid/:jobdesig/:joborgname/:extra" component={JobDetail}/>
+      <Route exact path="/jobdetail/:jobid/:jobdesig/:joborgname/:extra/:extraplus" component={JobDetail}/>
       <Route exact path="/jobcounsel/" component={Home} />
       <Route exact path="/jobcounsel/home" component={Home} />
       <Route exact path="/jobcounsel/home/:searchquery" component={Home} />
       <Route exact path="/jobcounsel/about" component={About} />
-      <Route exact path="/jobcounsel/jobdetail/:jobid" component={JobDetail}/>
+      <Route exact path="/jobcounsel/jobdetail/:jobid/:jobdesig/:joborgname" component={JobDetail}/>
+      <Route path="/sitemap.xml" onEnter={reload} />
+      <Route component={Home} />
     </Switch>
 
   </Router>

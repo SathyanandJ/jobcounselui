@@ -18,22 +18,82 @@ class JobDetailsSideNavigation extends Component{
         //console.log('this.props.currentjobdetail'+ this.props.currentjobdetail);
     }
 
+
+    deriveJobPosting(postingManipulative,posting,isCity){
+        if(typeof(posting)!== 'undefined' && typeof(postingManipulative) !== 'undefined'){
+            postingManipulative = postingManipulative.toLowerCase();
+                if(postingManipulative.includes("india")){
+                    if(isCity)
+                        return "India";
+                    else
+                        return '';
+                }else if(postingManipulative.includes(",")){
+                    const split = posting.split(',');
+                    if(isCity)
+                        return split[0].trim();
+
+                    else{
+                        return split[1].trim();
+                    }
+                }
+                else{
+                    if(isCity)
+                        return posting.trim();
+                    else
+                        return '';
+                    }
+        }
+        else
+            return posting;
+    }
+
+    
+
+   
     render(){
+
+        /* const jobQualificationList = [];
+        if(typeof(this.props.currentjobincontext_job_qualification)!=='undefined'){
+            var manipulation_qualification = this.props.currentjobincontext_job_qualification;
+            const allQualification = ['PhD',' btech',' mtech',' msc',' bsc',' me',' be',' 10th',' 12th',' ssc',' matric',' ca',' mca',' bca',' diploma',' blib',' mlib',' icwa',' icai',' iti',' sslc',' cma'];
+            //alert(typeof this.props.currentjobincontext_job_qualification);
+            //alert(manipulation_qualification.toLowerCase);
+            allQualification.forEach( qualificationItr => {
+               // alert(manipulation_qualification +"  |||   " +qualificationItr);
+                var strconverted = JSON.stringify(manipulation_qualification)
+                if(strconverted.includes(qualificationItr)){
+                    
+                    jobQualificationList.push(<Link to ={"/home/"+qualificationItr} id ="pagedetail-sidenavigation-custom-link"><Button id="pagedetail-sidenavigation-custom-button" > {qualificationItr} Jobs</Button> </Link>)
+                }
+            })
+        } */
+
+
+        var cityIdentified = this.deriveJobPosting(this.props.currentjobincontext_job_location,this.props.currentjobincontext_job_location,true)
+        var stateIdentified  = this.deriveJobPosting(this.props.currentjobincontext_job_location,this.props.currentjobincontext_job_location,false) 
+        var stateLink ='';
+        if(typeof(stateIdentified)!= 'undefined' && stateIdentified !=='' )
+            stateLink =<Link to ={"/home/"+stateIdentified} id ="pagedetail-sidenavigation-custom-link"><Button id="pagedetail-sidenavigation-custom-button" >Jobs In {this.deriveJobPosting(this.props.currentjobincontext_job_location,this.props.currentjobincontext_job_location,false)}</Button> </Link>
+        
         return(
                 
                 <div  id="pagedetail-sidenavigation-custom-div-alignment">
                   
-                  <a href ={this.props.currentjob_org_url} id ="pagedetail-sidenavigation-custom-link">
+                  <a href ={this.props.currentjob_org_url} id ="pagedetail-sidenavigation-custom-link" target="_blank" rel="noopener noreferrer">
                   <Button id="pagedetail-sidenavigation-custom-button" >About {this.props.currentjobincontext_org_name}</Button> </a>
                  
                   <Link to ={"/home/"+this.props.currentjobincontext_org_name} id ="pagedetail-sidenavigation-custom-link">
-                  <Button id="pagedetail-sidenavigation-custom-button" >More Jobs With {this.props.currentjobincontext_org_name}</Button> </Link>
+                  <Button id="pagedetail-sidenavigation-custom-button" >{this.props.currentjobincontext_org_name} Jobs</Button> </Link>
                  
                   <Link to ={"/home/"+this.props.currentjobincontext_job_branchname} id ="pagedetail-sidenavigation-custom-link"> 
-                  <Button id="pagedetail-sidenavigation-custom-button" >More {this.props.currentjobincontext_job_branchname} Jobs </Button> </Link>
+                  <Button id="pagedetail-sidenavigation-custom-button" >{this.props.currentjobincontext_job_branchname} Jobs </Button> </Link>
                 
-                  <Link to ={"/home/"+this.props.currentjobincontext_job_location} id ="pagedetail-sidenavigation-custom-link">
-                  <Button id="pagedetail-sidenavigation-custom-button" >More Jobs In {this.props.currentjobincontext_job_location}</Button> </Link>
+                  <Link to ={"/home/"+cityIdentified} id ="pagedetail-sidenavigation-custom-link">
+                  <Button id="pagedetail-sidenavigation-custom-button" >Jobs In {cityIdentified}</Button> </Link>
+                    
+                  {stateLink}
+
+                    
               </div>
         )
     }
@@ -45,6 +105,7 @@ const mapStateToStore = (state) => {
         currentjobincontext_org_name : state.jobsdetail.organizationName,
         currentjobincontext_job_branchname: state.jobsdetail.branchName,
         currentjobincontext_job_location: state.jobsdetail.jobLocation,
+        currentjobincontext_job_qualification : state.jobsdetail.qualification,
         currentjob_org_url : state.jobsdetail.organizationURL
     }
 }

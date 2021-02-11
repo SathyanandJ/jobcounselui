@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown ,Form,FormControl,Button} from 'react-bootstrap';
-import { NavLink, withRouter } from 'react-router-dom';
+import { Button, InputGroup, FormControl, InputGroupAppend} from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
@@ -8,7 +8,6 @@ import '../css/global/App.css';
 import '../css/global/pagemain.css';
 
 import appenvironment from '../config/environment.json';
-
 
 class SearchBox extends Component{
 
@@ -64,11 +63,21 @@ class SearchBox extends Component{
         
 
         if(e.target.value === ""){
-       
             axios.get(appenvironment.SERVER_URL+'jobs/'+currentSelectedSector)
             .then( res => {
                 this.props.updateJobsForSearchResult(res.data);
             })
+        }
+        if(e.keyCode === 13){
+            alert("Called");
+            this.handleSearchClick(e);
+        }
+    }
+
+    handleKeyPress = (e) => {
+        
+        if(e.key === 'Enter'){
+            this.handleSearchClick(e);
         }
     }
 
@@ -76,9 +85,9 @@ class SearchBox extends Component{
     render() {
         return (
             <div style={{ display: "flex", justifyContent: "center"}}>
-                                       
-                        <input id ="pagemain-navigation-searchbox" value ={this.state.searchboxtext} type="text" placeholder ="Search Jobs By Location, Organization, Qualification" onChange={ this.handleChange }   ></input>
-                        <Button id="pagemain-navigation-searchbox-btn" onClick = {this.handleSearchClick}>Search</Button>
+                         <input id ="pagemain-navigation-searchbox" value ={this.state.searchboxtext} type="text" placeholder ="Search Jobs By Location, Organization, Qualification" onChange={ this.handleChange }  onKeyPress = {this.handleKeyPress} ></input>
+                       
+                        <Button id="pagemain-navigation-searchbox-btn" onClick = {this.handleSearchClick} >Search Jobs</Button>
                 
             </div>
         )

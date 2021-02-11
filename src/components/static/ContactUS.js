@@ -18,7 +18,7 @@ class ContactUS extends Component {
                         </ol>
                     </nav>
 
-                    <h5 className="about-text-format"> Mail us at jobcounselindia@gmail.com
+                    <h5 className="about-text-format"> Mail us at admin@jobcounsel.in
                     </h5>
 
             </div>

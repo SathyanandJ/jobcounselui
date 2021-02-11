@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown ,Form,FormControl,Button} from 'react-bootstrap';
-import { NavLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import BootstrapTable from 'react-bootstrap-table-next'; 
 import axios from 'axios';
@@ -48,6 +47,14 @@ const pageOptions = {
     }] // A numeric array is also available. the purpose of above example is custom the text
   };
 
+
+
+  const noDataToShow = () => (
+    <span>
+      oops !!!  No Jobs To Show
+    </span>
+  );
+
 class JobTable extends Component{
 
 
@@ -60,24 +67,30 @@ class JobTable extends Component{
         
       
     columnNames = [
-        { dataField: 'organizationName', text:'Organization',headerStyle: () => {
-            return { width: "15%",textAlign: 'center',backgroundColor:'#446658',border:'2px solid black' ,color:'#ffff', font:'100% arial,sans-serif' };
+        
+        { dataField: 'organizationName', text:'Organization', formatter: (cell, row,rowIndex,formatExtraData) => <span className="mainpage-table-txt-design">{row.organizationName}</span>
+            ,headerStyle: () => {
+            return { width: "20%",textAlign: 'center', padding:'0.1em 0.1em',backgroundColor:'#446658',border:'2px solid black' ,color:'#ffff', font:'Lato bold,sans-serif !important', fontSize:'1em'};
           } },
-        { dataField: 'designation', text:'Designation',  headerStyle: () => {
-            return { width: "15%",textAlign: 'center',backgroundColor:'#446658',border:'2px solid black' ,color:'#ffff' , font:'100% arial,sans-serif' };
+        { dataField: 'designation', text:'Designation',  formatter: (cell, row,rowIndex,formatExtraData) => <span className="mainpage-table-txt-design">{row.designation}</span>
+            ,headerStyle: () => {
+            return { width: "15%",textAlign: 'center',padding:'0.1em 0.1em', backgroundColor:'#446658',border:'2px solid black' ,color:'#ffff' , font: 'Lato bold,sans-serif !important', fontSize:'1em' };
           } },
-        { dataField: 'qualification', text:'Qualification',headerStyle: () => {
-            return { width: "42%",textAlign: 'center',backgroundColor:'#446658',border:'2px solid black',color:'#ffff' , font:'100% arial,sans-serif' };
+        { dataField: 'qualification', text:'Qualification',formatter: (cell, row,rowIndex,formatExtraData) => <span className="mainpage-table-txt-design">{row.qualification}</span>
+            ,headerStyle: () => {
+            return { width: "37%",textAlign: 'center', padding:'0.1em 0.1em', backgroundColor:'#446658',border:'2px solid black',color:'#ffff' , font: 'Lato bold,sans-serif !important', fontSize:'1em' };
           } },
-        { dataField: 'location', text:'Location',headerStyle: () => {
-            return { width: "10%",textAlign: 'center',backgroundColor:'#446658',border:'2px solid black' ,color:'#ffff', font:'100% arial,sans-serif'};
+        { dataField: 'location', text:'Location',formatter: (cell, row,rowIndex,formatExtraData) => <span className="mainpage-table-txt-design">{row.location}</span>
+            ,headerStyle: () => {
+            return { width: "10%",textAlign: 'center', padding:'0.1em 0.1em',backgroundColor:'#446658',border:'2px solid black' ,color:'#ffff', font:'Lato bold,sans-serif !important', fontSize:'1em' };
           } },
-        { dataField: 'jobApplyLastDate', text:'Last Date' ,headerStyle: () => {
-            return { width: "10%",textAlign: 'center',backgroundColor:'#446658',border:'2px solid black',color:'#ffff' , font:'100% arial,sans-serif' };
+        { dataField: 'jobApplyLastDate', text:'Last Date' ,formatter: (cell, row,rowIndex,formatExtraData) => <span className="mainpage-table-txt-design">{row.jobApplyLastDate}</span>
+            ,headerStyle: () => {
+            return { width: "10%",textAlign: 'center',padding:'0.1em 0.1em', backgroundColor:'#446658',border:'2px solid black',color:'#ffff' , font:'Lato bold,sans-serif !important', fontSize:'1em' };
           }},
-        { dataField:'details' , text:'Details',formatExtraData:'' , formatter: (cell, row,rowIndex,formatExtraData) =>  <Link to={"/jobdetail/"+row.id}> <button type="button" id ="pagemain-jobtable-details-btn">
+        { dataField:'details' , text:'Details',formatExtraData:'' , formatter: (cell, row,rowIndex,formatExtraData) =>  <Link to={"/jobdetail/"+row.id+"/"+row.designation+"/"+row.organizationName}> <button type="button" id ="pagemain-jobtable-details-btn">
              {cell} </button> </Link> ,headerStyle: () => {
-            return { width: "8%",textAlign: 'center',padding:'10px 0',backgroundColor:'#446658',border:'2px solid black',color:'#ffff' , font:'100% arial,sans-serif'};
+            return { width: "8%",textAlign: 'center',padding:'0.1em 0.1em',backgroundColor:'#446658',border:'2px solid black',color:'#ffff' , font:'Lato bold,sans-serif !important', fontSize:'1em'};
           } },       
 
       ]
@@ -85,7 +98,6 @@ class JobTable extends Component{
        var searchQuery = this.props.searchquery;
 
        if( typeof searchQuery == 'undefined'){
-
           axios.get(appenvironment.SERVER_URL+'jobs/'+this.state.currentselectedsector)
           .then ( res => {
               console.log('Jobs : ' + res.data);            
@@ -96,7 +108,12 @@ class JobTable extends Component{
     }
 
     render() {
+      
+      document.title="India Government Jobs Recruitment Career Public Sector Jobs State Government Jobs";
+      document.getElementsByTagName("META")[3].content ="India Government Jobs Recruitment Career Public Sector Jobs State Government Jobs";
+
         return (
+           <div>     
             <div style={{ marginTop: 10 }}>
 
                 <BootstrapTable 
@@ -108,13 +125,12 @@ class JobTable extends Component{
                 columns =  { this.columnNames }
                 rowStyle = { { backgroundColor: '#F4FBFE' } }
                 wrapperClasses="table-responsive"
+                noDataIndication = {noDataToShow()}
+                headerWrapperClasses = ""
                 >
- 
-
-                </BootstrapTable>
-
-
+                  </BootstrapTable>
             </div>
+          </div>
         )
     }
 }

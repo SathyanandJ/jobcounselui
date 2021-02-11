@@ -74,15 +74,16 @@ class NavigationSide extends Component {
                 <div id ="leftnavdiv">
 
                     <div>
-                    <h2>
-                        <Badge id ="pagemain-sidenavigation-header" variant="primary">Jobs Filter </Badge>
-                    </h2>
+                        <h2>
+                            <Badge id ="pagemain-sidenavigation-header" variant="primary">Jobs Filter </Badge>
+                        </h2>
                     </div>
-
-                    {this.props.branches_for_selectedsector.map ( button =>  (
-                        <Button variant="success" id = {this.chooseSelectedButtonStyle(button.id)} value = {button.id }  key = {button.id} onClick = { e => this.handleClick(e) }>{ button.name } Jobs</Button>
-                    )
-                    )}
+                    <div id="pagemain-sidenavigation-branchs-area">
+                        {this.props.branches_for_selectedsector.map ( button =>  (
+                            <Button variant="success" id = {this.chooseSelectedButtonStyle(button.id)} value = {button.id }  key = {button.id} onClick = { e => this.handleClick(e) }>{ button.name } Jobs</Button>
+                        )
+                        )}
+                    </div>
                            
                 </div> 
          
@@ -106,7 +107,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({type : 'UPDATE_BRANCHES_FROM_REST', data : branchesAsList})
         },
         updateJobsBySectorAndBranch : (jobsAsList,branchselected) => {
-            dispatch({type : 'UPDATE_JOBS_FROM_REST', data: jobsAsList ,branchclicked:branchselected})
+            dispatch({type : 'UPDATE_JOBS_FROM_REST', data: jobsAsList , branchclicked:branchselected})
         }
     }
 }

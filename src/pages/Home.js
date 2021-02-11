@@ -1,6 +1,7 @@
 import React from 'react';
 import NavigationMain  from '../components/NavigationMain';
-import NavigationSide from '../components/NavigationSide'
+import NavigationSide from '../components/NavigationSide';
+import NavigationJobNotifications from '../components/JobNotificationComp';
 import SearchBox from '../components/SearchBox';
 import JobTable from '../components/JobTable';
 import HeaderBanner from '../components/AppHeaderBanner';
@@ -62,8 +63,11 @@ class Home extends React.Component {
             <Row> 
                 <Col lg={2} xl={2} md={0} sm ={0} xs={0} className='d-none d-lg-block d-xl-block'>   
                    
-                        <div id ="pirate">
+                        <div id ="autodropdown">
                                   <NavigationSide/>
+                        </div>
+                        <div id = "autodropdown_notifications">
+                            <NavigationJobNotifications/>
                         </div>
                    
                 </Col>

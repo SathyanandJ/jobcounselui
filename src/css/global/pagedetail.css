@@ -103,6 +103,7 @@
     margin-top: 2vh;
     margin-left: 5pc;
     text-align: center;
+    text-decoration: underline;
 }
 
 #pagedetail-pagecontent-button-content{
@@ -251,8 +252,8 @@
         text-decoration: solid;
         font-size: 15px;
         margin-top: 2vh;
-        margin-left: 5pc;
         text-align: center;
+        text-decoration: underline;
     }
     
     #pagedetail-pagecontent-text-content{

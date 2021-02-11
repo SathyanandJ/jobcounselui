@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-import { Navbar, Nav, NavDropdown ,Form,FormControl,Button} from 'react-bootstrap';
+import { Button} from 'react-bootstrap';
 import BorderWrapper from 'react-border-wrapper'
 import { withRouter } from 'react-router-dom';
 import axios from 'axios';
@@ -40,13 +40,31 @@ class JobDetailDataDisplayArea extends Component {
                 return "Salary Depends on Eligibility such as last drawn Pay, Experience. etc";
             }else if( salary === 3) {
                 return "Salary Based On Apprentice Act 1961";
+            }else if( salary === 10) {
+                return "Salary As Per Indian Army Standards";
             }
         }else{
             return salary + " INR";
         }
     }
 
+    deriveTotalVacancies(totalVacancies){
+        if(totalVacancies === -1){
+            return "Information Not Available";
+        }else
+            return totalVacancies;
+    }
+
+    deriveJobYear(date){
+        date = String(date).split('-');
+        var year = date[2];
+        return year;
+    }
+
+    
+
     componentDidMount(){
+
         console.log("State:" +this.props.currentlyselectedsector);
         var jobidtogetdetails = this.props.jobid;
         console.log('Fetching Job Details For JobId :'+jobidtogetdetails)
@@ -55,15 +73,32 @@ class JobDetailDataDisplayArea extends Component {
             console.log(res.data)
             this.props.upgateJobDetail(res.data);               
         })
+        window.scrollTo(0, 0);
     }
 
-
     render() {
+    
 
+        
+        document.title=this.props.jobsdetail.organizationName + "  Recruitment " + this.props.jobsdetail.designation + " Job Post Location " + this.props.jobsdetail.jobLocation;
+        document.getElementsByTagName("META")[3].content = this.props.jobsdetail.organizationName + " Recruitment " + this.props.jobsdetail.designation + " Job Post Location " + this.props.jobsdetail.jobLocation + " India Jobs Apply View Advertisement" ;
         return (
+                
+                     
+                
             <div id="pagedetail-pagecontent-div-wholepage">
-            <BorderWrapper rightOffset='100px' >
+              <BorderWrapper rightOffset='100px' >
             <div >
+
+            <div >
+                
+                <div id="pagedetail-pagecontent-text-content-title"> 
+
+                {this.props.jobsdetail.organizationName} - Recruitment {this.deriveJobYear(this.props.jobsdetail.jobApplyLastDate)}
+                
+                </div>
+            </div>
+          
 
             <div >
                 
@@ -176,7 +211,7 @@ class JobDetailDataDisplayArea extends Component {
                 </div>
                 <div id="pagedetail-pagecontent-text-content"> 
 
-                    {this.props.jobsdetail.totalVacancies}
+                    {this.deriveTotalVacancies(this.props.jobsdetail.totalVacancies)}
                 
                 </div>
             </div>

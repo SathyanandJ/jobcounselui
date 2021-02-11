@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown ,Form,FormControl,Button} from 'react-bootstrap';
-import { NavLink, withRouter } from 'react-router-dom';
+import { Button} from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
@@ -68,8 +68,8 @@ class NavigationMain extends Component {
         return (
              
                 
-                <div  className="Form" style={{ display: "flex", justifyContent: "center", width:"100%" ,paddingLeft:"15px", paddingRight:"15px",marginTop:"1em"}}>
-           
+                <div  className="Form" style={{ display: "flex", justifyContent: "center", width:"100%" ,paddingLeft:"15px", paddingRight:"15px",marginTop:"0em"}}>
+                    <Button value = { 0 } id={this.chooseSelectedButtonStyle(0) } onClick = { e => this.handleClick(e)} > Home </Button>
                     <Button value = { this.props.posts[0].id } id={this.chooseSelectedButtonStyle(this.props.posts[0].id) } onClick = { e => this.handleClick(e)} >{this.props.posts[0].name} </Button>
                     <Button value = { this.props.posts[1].id } id={this.chooseSelectedButtonStyle(this.props.posts[1].id) } onClick = { e => this.handleClick(e)}>{this.props.posts[1].name} </Button> 
                     <Button value = { this.props.posts[2].id } id={this.chooseSelectedButtonStyle(this.props.posts[2].id) } onClick = { e => this.handleClick(e)}>{this.props.posts[2].name} </Button>
